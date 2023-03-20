@@ -24,6 +24,7 @@ const styles = {
 
  pink1: "text-[#f4c4f3]",
  pink2: "text-[#fc67fa]",
+    
 
  nav: 'font-poppins font-normal cursor-pointer text-[18px] bg-gray-gradient text-[#9dedf0] rounded-[10px] px-[8px] hover:bg-[#f4f4f4]',
   };
