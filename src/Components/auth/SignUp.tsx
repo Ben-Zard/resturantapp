@@ -1,33 +1,33 @@
 import React,{useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import {auth} from '../firebase/firebase'
-import {  signInWithEmailAndPassword   } from 'firebase/auth';
+import {auth} from '../../firebase/firebase'
+import {  createUserWithEmailAndPassword   } from 'firebase/auth';
 
 type Props = {
 }
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+const SignUp = () => {
 
   const nav = useNavigate();
 
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-            const user = userCredential.user;
+      const user = userCredential.user;
 
-          })
-          .catch((error) => {
-           setError(error.message)
-          }
-          )
-          nav('/home')
-        }
+    })
+    .catch((error) => {
+     setError(error.message)
+    }
+    )
+    nav('/home')
+  }
 
   return (
     <>
@@ -75,7 +75,7 @@ const Login = () => {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
-          Sign In
+          Sign Up
         </button>
         <button
           className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -90,4 +90,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp

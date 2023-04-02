@@ -1,6 +1,6 @@
 import {RouterProvider, createBrowserRouter } from "react-router-dom";
 import Checkout from "./Pages/Checkout";
-import Tables from "./Pages/Tables";
+import Tables from "./Pages/Resturant";
 import Home from "./Pages/Home";
 import LoginPage from "./Pages/LoginPage";
 

@@ -5,3 +5,9 @@
 .box-shadow {
     background: linear-gradient(125.17deg, #272727 0%, #11101d 100%);
   }
+
+  html {
+    scroll-behavior: smooth;
+  background-color: #272727;
+  color: #fff;
+  }

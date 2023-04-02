@@ -26,7 +26,7 @@ const styles = {
  pink2: "text-[#fc67fa]",
     
 
- nav: 'font-poppins font-normal cursor-pointer text-[18px] bg-gray-gradient text-[#9dedf0] rounded-[10px] px-[8px] hover:bg-[#f4f4f4]',
+ nav: 'font-poppins font-normal cursor-pointer text-[18px] bg-gray-gradient text-[#9dedf0] rounded-[10px] px-[8px] ',
   };
   
   export const layout = {
