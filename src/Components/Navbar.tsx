@@ -9,7 +9,7 @@ const Navbar = (props: Props) => {
 
   
   return (
-    <div className={ `${styles.nav} justify-center content-center flex w-[100vw]  text-center`}>
+    <div className={ `${styles.nav} justify-center content-center flex w-[100vw]  text-center fixed`}>
       <ul className='flex justify-between w-[50vw]'>
       {navLinks.map((link) => (
           <li key={link.id}>

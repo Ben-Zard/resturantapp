@@ -2,10 +2,10 @@ import React from 'react'
 
 type Props = {}
 
-const Tables = (props: Props) => {
+const Restaurant  = (props: Props) => {
   return (
     <div>Tables</div>
   )
 }
 
-export default Tables
+export default Restaurant

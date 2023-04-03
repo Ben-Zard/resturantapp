@@ -1,8 +1,9 @@
 import {RouterProvider, createBrowserRouter } from "react-router-dom";
 import Checkout from "./Pages/Checkout";
-import Tables from "./Pages/Resturant";
+
 import Home from "./Pages/Home";
 import LoginPage from "./Pages/LoginPage";
+import Restaurant from "./Pages/Restaurant";
 
 
 const routes = createBrowserRouter([
@@ -19,16 +20,19 @@ const routes = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "Table",
-    element: <Tables />,
+    path: "/table",
   },
   {
-     path: "Tables/:id",
-    // element: <ServiceSingle />,
+     path: "/tables/:id",
+
   },
   {
-     path: "Checkout",
-    // element: <ServiceSingle />,
+    path:"/restaurant",
+    element: <Restaurant/>,
+  },
+  {
+     path: "/checkout",
+
   },
 ]);
 
