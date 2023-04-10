@@ -5,9 +5,9 @@ export const navLinks = [
       path: "/home",
     },
     {
-      id: "title",
-      name: "Table",
-      path: "/table",
+      id: "restaurant",
+      name: "Restaurant",
+      path: "/restaurant",
     },
     {
       id: "menu",

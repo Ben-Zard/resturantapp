@@ -13,7 +13,7 @@ const Navbar = (props: Props) => {
       <ul className='flex justify-between w-[50vw]'>
       {navLinks.map((link) => (
           <li key={link.id}>
-            <Link to={link.id}>{link.name}</Link>
+            <Link to={link.path}>{link.name}</Link>
           </li>
         ))}
       </ul>

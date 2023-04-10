@@ -4,6 +4,7 @@ import Checkout from "./Pages/Checkout";
 import Home from "./Pages/Home";
 import LoginPage from "./Pages/LoginPage";
 import Restaurant from "./Pages/Restaurant";
+import Menu from "./Components/Menu";
 
 
 const routes = createBrowserRouter([
@@ -31,8 +32,12 @@ const routes = createBrowserRouter([
     element: <Restaurant/>,
   },
   {
+    path:"/menu",
+    element: <Menu/>,
+  },
+  {
      path: "/checkout",
-
+     element: <Checkout/>,
   },
 ]);
 

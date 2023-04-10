@@ -6,7 +6,7 @@ const Hero = (props: Props) => {
   return (
     <>
       <div className="flex flex-col justify-center items-center h-[90vh]">
-        <h1 className="text-6xl font-bold">Welcome to the Home Page</h1>
+        <h1 className="text-6xl font-bold">Welcome to the Home Pagee </h1>
       </div>
     </>
   );
