@@ -3,8 +3,8 @@ import Checkout from "./Pages/Checkout";
 
 import Home from "./Pages/Home";
 import LoginPage from "./Pages/LoginPage";
-import Restaurant from "./Pages/Restaurant";
-import Menu from "./Components/Menu";
+import Table from "./Pages/Table";
+import { UserProvider } from "./Components/auth/UserContext";
 
 
 const routes = createBrowserRouter([
@@ -22,21 +22,14 @@ const routes = createBrowserRouter([
   },
   {
     path: "/table",
+    element: <Table />,
   },
   {
-     path: "/tables/:id",
+     path: "/table/:id",
 
   },
   {
-    path:"/restaurant",
-    element: <Restaurant/>,
-  },
-  // {
-  //   path:"/menu",
-  //   element: <Menu/>,
-  // },
-  {
-     path: "/checkout",
+     path: "/order",
      element: <Checkout/>,
   },
 ]);
@@ -46,7 +39,9 @@ const App = () => {
 
   return (
     <>
+     <UserProvider>
       <RouterProvider router={routes} />
+      </UserProvider>
     </>
   );
 }

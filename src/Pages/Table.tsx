@@ -1,6 +1,4 @@
-import React from 'react'
-import Menu from '../Components/Menu'
-import Table from '../Components/Table'
+import Table from '../Components/Tables'
 import Navbar from '../Components/Navbar'
 
 type Props = {}
@@ -9,7 +7,6 @@ const Restaurant  = (props: Props) => {
   return (
     <>   
      <Navbar/>
-      {/* <Menu/> */}
       <Table/>
 
     </>

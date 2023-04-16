@@ -5,19 +5,14 @@ export const navLinks = [
       path: "/home",
     },
     {
-      id: "restaurant",
-      name: "Restaurant",
-      path: "/restaurant",
+      id: "tables",
+      name: "Tables",
+      path: "/table",
     },
     {
-      id: "menu",
-      name: "Menu",
-      path: "/menu",
-    },
-    {
-      id: "checkout",
-      name: "Checkout",
-      path: "/checkout",
+      id: "Order",
+      name: "Order",
+      path: "/order",
     }
 
     

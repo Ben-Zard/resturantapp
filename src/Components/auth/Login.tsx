@@ -2,6 +2,7 @@ import React,{useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import {auth} from '../../firebase/firebase'
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
+import { useUser } from './UserContext';
 
 type Props = {
 }
@@ -13,14 +14,14 @@ const Login = () => {
 
   const nav = useNavigate();
 
-
+  const { user, setUser } = useUser();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-            const user = userCredential.user;
-
+      console.log(userCredential)
+            setUser( userCredential.user);
           })
           .catch((error) => {
            setError(error.message)

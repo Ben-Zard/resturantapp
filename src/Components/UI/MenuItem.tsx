@@ -14,10 +14,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, addToCart }) => {
   const { name, description, price, img } = item;
 
   return (
-    <div className="bg-gray-800  w-10/12 h-10/12 text-white rounded-lg shadow-md p-4 my-4">
+    <div className="bg-gray-800 w-10/12 h-10/12 text-white rounded-lg shadow-md p-4 my-4">
       <div className="relative pb-3/4 flex items-center justify-center ">
         <img
-          className="relative w-10/12 h-10/12 object-cover rounded-lg "
+          className="relative w-10/12 h-10/12 object-cover rounded-lg"
           src={img}
           alt={name}
         />
