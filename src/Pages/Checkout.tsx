@@ -1,10 +1,14 @@
 import React from 'react'
+import Navbar from '../Components/Navbar'
 
 type Props = {}
 
 const Checkout = (props: Props) => {
   return (
-    <div>Checkout</div>
+    <>   
+     <Navbar/>
+    
+    </>
   )
 }
 

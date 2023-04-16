@@ -14,3 +14,11 @@ export async function getDocumentToCollection(collectionName: string) {
     throw error;
   }
 }
+
+export const fetchMenuItems = async () => {
+  const menuItemsCol = collection(db, 'menuItems');
+  const menuItemsSnapshot = await getDocs(menuItemsCol);
+  const menuItemsList = menuItemsSnapshot.docs.map(doc => doc.data());
+  return menuItemsList;
+}
+
