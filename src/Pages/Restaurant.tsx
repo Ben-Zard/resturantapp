@@ -9,7 +9,7 @@ const Restaurant  = (props: Props) => {
   return (
     <>   
      <Navbar/>
-      <Menu/>
+      {/* <Menu/> */}
       <Table/>
 
     </>

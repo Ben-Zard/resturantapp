@@ -31,10 +31,10 @@ const routes = createBrowserRouter([
     path:"/restaurant",
     element: <Restaurant/>,
   },
-  {
-    path:"/menu",
-    element: <Menu/>,
-  },
+  // {
+  //   path:"/menu",
+  //   element: <Menu/>,
+  // },
   {
      path: "/checkout",
      element: <Checkout/>,
