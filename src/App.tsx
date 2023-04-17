@@ -33,6 +33,9 @@ const routes = createBrowserRouter([
      element: <Checkout/>,
   },
 ]);
+//  #TODO: Add resurvation hsitoy with checkout 
+// #TODO: clean up styling 
+// #TODO: finish home page
 
 
 const App = () => {
