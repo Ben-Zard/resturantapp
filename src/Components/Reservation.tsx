@@ -8,10 +8,10 @@ type Props = {
 }
 
 const Reservation = ({res, onClose}: Props) => {
-console.log(res)
+
 const reservation = res.reservation
 if (!reservation) {
-    return null; // or return a placeholder component or message
+    return null; 
   }
 
   return (

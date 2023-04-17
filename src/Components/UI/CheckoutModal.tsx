@@ -17,7 +17,6 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ show, onClose,totalPrice 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(tables);
     if (tables) {      
       await updateTableAvailability(tables, false);
         await setReservation(user!.uid, tables, totalPrice);

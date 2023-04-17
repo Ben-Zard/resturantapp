@@ -21,7 +21,6 @@ const Login = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log(userCredential)
             setUser( userCredential.user);
             setUserFirebase(userCredential.user.uid)
           })

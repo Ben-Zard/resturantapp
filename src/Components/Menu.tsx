@@ -15,7 +15,6 @@ useEffect(() => {
   fetchMenuItems().then((items):any => setMenuItems(items));
 
 }, []);
-console.log(menuItems)
   return (
     <div className='grid grid-cols-3'>
       {menuItems.map((item:any, index:any) => (

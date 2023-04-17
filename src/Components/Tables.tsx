@@ -16,7 +16,6 @@ function Tables({}: Props) {
 
   useEffect(() => {
     fetchTable().then((items):any => setTable(items));
-    console.log(table);
   }, []);
 
 
