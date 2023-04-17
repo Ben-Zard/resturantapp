@@ -1,7 +1,7 @@
 // firestoreUtils.ts
 
 import { db } from './firebase';
-import { getFirestore, collection, getDocs, doc, updateDoc, setDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, updateDoc, setDoc, getDoc } from 'firebase/firestore/lite';
 
 export async function getDocumentToCollection(collectionName: string) {
   try {
@@ -40,5 +40,22 @@ export const setUserFirebase = async (userId: string) => {
   const user = {
     id: userId,
   };
-  await setDoc(userRef, user);
+  await updateDoc(userRef, user);
+};
+
+export const setReservation = async (userId: string) => {
+
+};
+
+export const getReservation = async (userId: string) => {
+  const userRef = doc(db, 'users', userId);
+  const userDoc = await getDoc(userRef);
+
+  if (!userDoc.exists()) {
+    throw new Error(`User ${userId} not found`);
+  }
+
+  const userData = userDoc.data();
+
+  return userData;
 };

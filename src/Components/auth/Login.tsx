@@ -23,7 +23,7 @@ const Login = () => {
     .then((userCredential) => {
       console.log(userCredential)
             setUser( userCredential.user);
-             setUserFirebase(userCredential.user.uid)
+            setUserFirebase(userCredential.user.uid)
           })
           .catch((error) => {
            setError(error.message)
