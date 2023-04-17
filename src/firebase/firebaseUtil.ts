@@ -1,7 +1,7 @@
 // firestoreUtils.ts
 
 import { db } from './firebase';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, updateDoc, setDoc } from 'firebase/firestore/lite';
 
 export async function getDocumentToCollection(collectionName: string) {
   try {
@@ -28,3 +28,17 @@ export const fetchTable = async () => {
   const menuItemsList = menuItemsSnapshot.docs.map(doc => doc.data());
   return menuItemsList;
 }
+
+
+export const updateTableAvailability = async (tableId: string, available: boolean) => {
+  const tableRef = doc(db, 'tables', tableId);
+  await updateDoc(tableRef, { available: available });
+};
+
+export const setUserFirebase = async (userId: string) => {
+  const userRef = doc(db, 'users', userId);
+  const user = {
+    id: userId,
+  };
+  await setDoc(userRef, user);
+};

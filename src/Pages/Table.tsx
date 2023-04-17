@@ -1,5 +1,5 @@
 import Table from '../Components/Tables'
-import Navbar from '../Components/Navbar'
+import Navbar from '../Components/UI/Navbar'
 
 type Props = {}
 
@@ -8,7 +8,6 @@ const Restaurant  = (props: Props) => {
     <>   
      <Navbar/>
       <Table/>
-
     </>
   )
 }

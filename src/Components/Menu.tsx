@@ -1,5 +1,5 @@
 
-import Navbar from './Navbar'
+import Navbar from './UI/Navbar'
 import { fetchMenuItems } from '../firebase/firebaseUtil'
 import { useEffect, useState } from 'react'
 import MenuItem from './UI/MenuItem'

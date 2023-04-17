@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {auth} from '../../firebase/firebase'
 import {  signInWithEmailAndPassword   } from 'firebase/auth';
 import { useUser } from './UserContext';
+import { setUserFirebase } from '../../firebase/firebaseUtil';
 
 type Props = {
 }
@@ -22,6 +23,7 @@ const Login = () => {
     .then((userCredential) => {
       console.log(userCredential)
             setUser( userCredential.user);
+             setUserFirebase(userCredential.user.uid)
           })
           .catch((error) => {
            setError(error.message)

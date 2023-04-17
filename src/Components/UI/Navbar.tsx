@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import styles from '../Style/styles';
-import { navLinks } from '../Store/consts';
+import styles from '../../Style/styles';
+import { navLinks } from '../../Store/consts';
 import { Link } from 'react-router-dom';
-import { useUser } from './auth/UserContext';
+import { useUser } from '../auth/UserContext';
 
 const Navbar = () => {
   const { user } = useUser();
