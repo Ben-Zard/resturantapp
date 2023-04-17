@@ -9,8 +9,8 @@ const CTA = (props: Props) => {
              <div className='m-5'>
                 <div
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3"
-                > <Link to = "/restaurant">
-                Get Started
+                > <Link to = "/order">
+                Book a Table
                 </Link>  </div>
                 </div>
               </div>

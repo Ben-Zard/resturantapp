@@ -15,7 +15,6 @@ const Home = (props: Props) => {
     <Navbar/>
     <Hero/>
     <About/>
-    <CTA/> 
     </div>
       </>
   )
