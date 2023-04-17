@@ -22,3 +22,9 @@ export const fetchMenuItems = async () => {
   return menuItemsList;
 }
 
+export const fetchTable = async () => {
+  const menuItemsCol = collection(db, 'tables');
+  const menuItemsSnapshot = await getDocs(menuItemsCol);
+  const menuItemsList = menuItemsSnapshot.docs.map(doc => doc.data());
+  return menuItemsList;
+}

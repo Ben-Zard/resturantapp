@@ -1,41 +1,75 @@
-// App.tsx
+import React, { useEffect, useState } from 'react';
+import '../Style/index.css'
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { fetchTable } from '../firebase/firebaseUtil';
+type Props = {};
 
-import React, { useState } from 'react';
-import { getDocumentToCollection } from '../firebase/firebaseUtil';
- 
-function Table() {
-  const [text, setText] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+type TableData = {
+  capacity: number;
+  available: boolean;
+};
 
-    try {
-      const newDocument = {
-        text,
-        timestamp: new Date(),
-      };
+function Tables({}: Props) {
+  const [table, setTable] = useState<TableData|any>([]);
+  const [tables, setTables] = useState<any>([]);
 
-      const docId = await getDocumentToCollection('your-collection');
-      setText('');
-      console.log('Document added with ID:', docId);
-    } catch (error) {
-      console.error('Error adding document:', error);
-    }
+  useEffect(() => {
+    fetchTable().then((items):any => setTable(items));
+    console.log(table);
+  }, []);
+
+
+  const handleClick = (tableId: string) => {
+    setTables(tableId);
   };
 
+
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Add a document"
-        />
-        <button type="submit">Submit</button>
-      </form>
+    <div className='pt-8 '>
+      <h2 className='text-center p-8'>Open Tables</h2>
+      <div className="restaurant-layout">
+        <div className="tables-row">
+          {table.slice(0, 2).map((item: any) => (
+            <button
+              key={item.id}
+              onClick={() => handleClick(item.capacity)}
+              className={`table ${item.available ? 'bg-gray-100' : 'bg-red-500'}`}
+            >
+              Table {item.id}
+            </button>
+          ))}
+         </div>
+        <div className="tables-column">
+          {table.slice(2, 4).map((item: any) => (
+            <button
+              key={item.id}
+              onClick={() => handleClick(item.capacity)}
+              className={`table  ${item.available ? 'bg-gray-100 my-8' : 'bg-red-500 my-8'}`}
+            >
+              Table {item.id}
+            </button>
+          ))}
+        </div>
+        <div className="tables-row">
+          {table.slice(4).map((item: any) => (
+            <button
+              key={item.id}
+              onClick={() => handleClick(item.capacity)}
+              className={`table ${item.available ? 'bg-gray-100' : 'bg-red-500'}`}
+            >
+              Table {item.id}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className='text-center p-8'>
+        {tables && <h2>There are {tables} spots at this table</h2>}
+      </div>
     </div>
   );
+  
+  
 }
 
-export default Table;
+export default Tables;

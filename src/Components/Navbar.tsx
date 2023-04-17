@@ -28,7 +28,7 @@ const Navbar = () => {
         {showDetails && (
           <div className="absolute bg-white border border-gray-300 p-4 rounded shadow">
             <div>{user?.email}</div>
-            <div>Reservations</div>
+            <Link to={"/order"}>Reservation</Link>
           </div>
         )}
       </li>
