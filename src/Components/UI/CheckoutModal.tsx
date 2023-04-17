@@ -1,13 +1,16 @@
 // CheckoutModal.tsx
 import React, { useState } from "react";
-import { updateTableAvailability } from "../../firebase/firebaseUtil";
+import { setReservation, updateTableAvailability } from "../../firebase/firebaseUtil";
+import { useUser } from "../auth/UserContext";
 
 interface CheckoutModalProps {
   show: boolean;
   onClose: () => void;
+  totalPrice: string;
 }
 
-const CheckoutModal: React.FC<CheckoutModalProps> = ({ show, onClose }) => {
+const CheckoutModal: React.FC<CheckoutModalProps> = ({ show, onClose,totalPrice }) => {
+    const { user } = useUser();
 
 
   const [tables, setTables] = useState<string | null>(null);
@@ -15,10 +18,9 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ show, onClose }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(tables);
-    if (tables) {
-         const num = parseInt(tables);
-      
+    if (tables) {      
       await updateTableAvailability(tables, false);
+        await setReservation(user!.uid, tables, totalPrice);
     }
     onClose();
   };

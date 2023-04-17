@@ -32,7 +32,7 @@ const Cart = () => {
 
   return (
     <>
-     <CheckoutModal show={showModal} onClose={handleCloseModal} />
+     <CheckoutModal show={showModal} onClose={handleCloseModal} totalPrice= {totalPrice} />
     <div className="w-full max-w-lg mx-auto">
       <h2 className="text-2xl font-semibold mb-4 pt-8">Your Cart</h2>
       <div className="bg-white shadow-md p-4 rounded-lg">

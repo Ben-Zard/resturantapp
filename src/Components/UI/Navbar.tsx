@@ -12,41 +12,39 @@ import { getReservation } from '../../firebase/firebaseUtil';
 const Navbar = () => {
   const { user } = useUser();
   const [showDetails, setShowDetails] = useState(false);
+  const [showDetails2, setShowDetails2] = useState(false);
   const [reservation, setRes] = useState<any>([])
 
   const toggleDetails = async () => {
     setShowDetails(!showDetails);
-    // const data = getReservation(user!.uid)
-    // setRes(data)
-    // console.log(data.then((res) => console.log(res)))
-    const userData = await getReservation((user!.uid));
+    const userData = await getReservation(user!.uid);
     setRes(userData);
-    console.log(userData);
   };
-  
 
-
+  const toggleDetails2 = () => {
+    setShowDetails2(!showDetails2);
+  };
 
   return (
     <div className={`${styles.nav} justify-center content-center flex w-[100vw] text-center fixed`}>
-    <ul className="flex justify-between w-[50vw]">
-      {navLinks.map((link) => (
-        <li key={link.id}>
-          <Link to={link.path}>{link.name}</Link>
+      <ul className="flex justify-between w-[50vw]">
+        {navLinks.map((link) => (
+          <li key={link.id}>
+            <Link to={link.path}>{link.name}</Link>
+          </li>
+        ))}
+        <li>
+          <FontAwesomeIcon icon={faUserCircle} onClick={toggleDetails} className="cursor-pointer" />
+          {showDetails && (
+            <div className="fixed inset-0 bg-gray-800 bg-opacity-70 flex items-center justify-center">
+              { user?.email && <p className='z-20  absolute top-20 text-3xl'>{user.email}</p>}
+               {user?.email && <Reservation res={reservation} onClose={toggleDetails} /> }
+            </div>
+          )}
         </li>
-      ))}
-      <li>
-        <FontAwesomeIcon icon={faUserCircle} onClick={toggleDetails} className="cursor-pointer" />
-        {showDetails && (
-          <div className="absolute bg-white border border-gray-300 p-4 rounded shadow text-black">
-            <div>{user?.email}</div>
-            {user?.email && <Reservation  res = {reservation}/>}
-          </div>
-        )}
-      </li>
-    </ul>
-  </div>
-);
+      </ul>
+    </div>
+  );
 };
 
 export default Navbar;

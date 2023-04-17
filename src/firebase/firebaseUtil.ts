@@ -1,7 +1,7 @@
 // firestoreUtils.ts
 
 import { db } from './firebase';
-import { getFirestore, collection, getDocs, doc, updateDoc, setDoc, getDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, doc, updateDoc, setDoc, getDoc, arrayUnion } from 'firebase/firestore/lite';
 
 export async function getDocumentToCollection(collectionName: string) {
   try {
@@ -43,8 +43,23 @@ export const setUserFirebase = async (userId: string) => {
   await updateDoc(userRef, user);
 };
 
-export const setReservation = async (userId: string) => {
+export const setReservation = async (userId:string,table:string,total:string) => {
+  const userRef = doc(db, "users", userId);
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+  const reservation = {
+    table: table,
+    time: formattedDate,
+    total: total,
+  };
 
+  await updateDoc(userRef, {
+    reservation: arrayUnion(reservation)
+  });
 };
 
 export const getReservation = async (userId: string) => {
